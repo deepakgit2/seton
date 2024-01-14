@@ -1,4 +1,4 @@
-# seton
+# Topics
 
 - [Git](notes/git)
 - [Linux](notes/linux)
