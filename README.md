@@ -1,4 +1,4 @@
-# Topics
+## Topics
 
 - [Git](notes/git)
 - [Linux](notes/linux)
