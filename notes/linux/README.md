@@ -1,4 +1,4 @@
-## Commands
+# Commands
 - [`cat`](#cat) [`cd`](#cd) [`chgrp`](#chgrp) [`chmod`](#chmod) [`chown`](#chown) [`cp`](#cp)
 - [`find`](#find)
 - [`grep`](#grep) [`group`](#group)
@@ -97,11 +97,32 @@
     - `!42` Enter the command number preceded by an exclamation mark (!)
     - Note:
         - It's important to note that the command history is specific to each terminal session and is not shared among different terminal windows or different users
+## ls
+- `ls` list information about and files and directories
+    - `ls` list all contents in current dir
+    - `ls <path>` list all contents for given path
+    - `ls -a [--all]` do not ignore entries starting with . (hidden files)
+    - `ls -l` list all contents alongs with its owner setting, permissions & time stamp (long format)
+    - `ls -R [--recursive]` list all contents in sub folders recursively
+    - `ls -h [--human-readable]` with -l or -s, print sizes like 1K 10M 2G etc
+    - `ls -S [--sort]` Sort by file size in descending order
+    - `ls *.py` We can use regex also [TODO]
 
 ## mkdir
 - `mkdir` Create the DIRECTORY(ies), if they do not already exist
     - `mkdir <folder1> <folder2>` It will create two directories
     - `mkdir -p /folder1/folder2/folder3` By default it does not create nested folder. We can pass -p [--parent] flat to do same.
+## mv
+- `mv` Similar to cut & paste [by default over write if already exists].
+    - `mv <src_file> <dst_file>` src file will be moved to dst file. If dst filename is different the it will renamed also
+    - `mv <src_file> <dst_folder>` src file will be moved into the dst folder. We can pass multple files also.
+    - `mv *.py <dst_folder>` It will move all .py files from src to dst
+    - `mv <src_folder> <dst_folder>` to move folder (including hidden files). **If dst_folder not exists, it will be created [At first level not nestedly] and all the content of src_folder will be moved into dst_folder and if If dst_folder exists then src_folder will be moved into the dst_folder**
+    - `mv -i <src> <dst>` enters interactive mode and ask before over writing files
+    - `mv -v <src> <dst>` verbose; prints informative messages
+    - `mv -u <src> <dst>` update the dst file only if src file is different from dst file
+## pwd
+- `pwd` prints the current directory
 ## rm
 - `rm` Remove the Files and Directories
     - `rm <file1> <file2>` Remove files
@@ -141,27 +162,7 @@
     - `tar -czvf archive.tar.gz <file1> <file2>` creates new compressed archive
     - Points:
         - tar is primarily used for bundling files and directories together, and it does not perform compression by default. It is often combined with compression tools like gzip or bzip2 e.g (tar.gz or tar.bz2)
-## ls
-- `ls` list information about and files and directories
-    - `ls` list all contents in current dir
-    - `ls <path>` list all contents for given path
-    - `ls -a [--all]` do not ignore entries starting with . (hidden files)
-    - `ls -l` list all contents alongs with its owner setting, permissions & time stamp (long format)
-    - `ls -R [--recursive]` list all contents in sub folders recursively
-    - `ls -h [--human-readable]` with -l or -s, print sizes like 1K 10M 2G etc
-    - `ls -S [--sort]` Sort by file size in descending order
-    - `ls *.py` We can use regex also [TODO]
-## mv
-- `mv` Similar to cut & paste [by default over write if already exists].
-    - `mv <src_file> <dst_file>` src file will be moved to dst file. If dst filename is different the it will renamed also
-    - `mv <src_file> <dst_folder>` src file will be moved into the dst folder. We can pass multple files also.
-    - `mv *.py <dst_folder>` It will move all .py files from src to dst
-    - `mv <src_folder> <dst_folder>` to move folder (including hidden files). **If dst_folder not exists, it will be created [At first level not nestedly] and all the content of src_folder will be moved into dst_folder and if If dst_folder exists then src_folder will be moved into the dst_folder**
-    - `mv -i <src> <dst>` enters interactive mode and ask before over writing files
-    - `mv -v <src> <dst>` verbose; prints informative messages
-    - `mv -u <src> <dst>` update the dst file only if src file is different from dst file
-## pwd
-- `pwd` prints the current directory
+
 ## users
 - `users` following are few commands to manage users in linux
     - `useradd` create a new user account.
