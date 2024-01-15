@@ -1,3 +1,8 @@
+- **Commands**
+    - [cat](#cat)
+    - [grep](#grep)
+
+### cat
 - `cat` it use to display the file content and concatenate multiple files into one
     - `cat file.txt` show the content of file.txt
     - `cat file1.txt file2.txt` concatenate the content of file1 and file2 with '\n' and display them
@@ -51,6 +56,7 @@
     - `find / -size +100M` Finds files larger than 100 megabytes in the whole system [-size n[ckMG]]
     - `find /home -name "*.txt" -exec rm {} +` Deletes all files ending with ".txt" in the /home directory and its subdirectories. {} placeholder represents the file name, and + indicates that the command should be run with multiple files at once
 
+## grep
 - `grep` command is use to search for a perticular string/pattern in a file
     - `grep pattern <file>` returns all the lines that matches pattern
     - `grep pattern <file1> <file2>` returns all the lines that matches pattern in both files
