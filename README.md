@@ -6,5 +6,7 @@
 
 ## ToDo
 - [List](https://github.com/deepakgit2/seton/issues/1)
+- https://github.com/deepakgit2/seton/issues/1
 
-- [] hello
+### New
+- [ ] hello
