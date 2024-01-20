@@ -5,7 +5,7 @@
 FROM ubuntu:20.04
 
 # Args Vars
-ARG PYTHON_LINK=https://repo.anaconda.com/miniconda/Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
+ARG PYTHON_LINK=https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz
 
 # Env Vars
 ENV TZ=Asia/Kolkata \
