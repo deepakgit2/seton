@@ -8,7 +8,9 @@ ARG MINICONDA_LINK=https://repo.anaconda.com/miniconda/Miniconda3-py310_23.11.0-
 
 # Env Vars
 ENV TZ=Asia/Kolkata \
-    DISPLAY=:99
+    DISPLAY=:99 \
+    GIT_NAME="Singh, Deepak" \
+    GIT_TIMEOUT=86400
 
 RUN apt-get update && \
     # Install Packages
@@ -18,7 +20,12 @@ RUN apt-get update && \
     # Git Install and Configs
     DEBIAN_FRONTEND=noninteractive apt-get install git-all -y && \
     echo "echo \$GIT_PASS" > ~/.git-askpass.sh && chmod +x ~/.git-askpass.sh && \
+    echo "# Custom" >> ~/.bashrc && \
     echo "export GIT_ASKPASS=~/.git-askpass.sh" >> ~/.bashrc && \
+    echo "git config --global user.name $GIT_NAME" >> ~/.bashrc && \
+    echo "git config --global user.email $GIT_EMAIL" >> ~/.bashrc && \
+    echo "git config --global credential.https://github.com.username $GIT_USER" >> ~/.bashrc && \
+    echo "git config --global credential.helper 'cache --timeout=$GIT_TIMEOUT'" >> ~/.bashrc && \
     # Install Miniconda
     mkdir -p ~/miniconda3 && \
     wget ${MINICONDA_LINK} -O ~/miniconda3/miniconda.sh && \
