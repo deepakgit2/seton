@@ -25,7 +25,7 @@ RUN apt-get update && \
     echo "git config --global user.name ${GIT_NAME}" >> ~/.bashrc && \
     echo "git config --global user.email ${GIT_EMAIL}" >> ~/.bashrc && \
     echo "git config --global credential.https://github.com.username ${GIT_USER}" >> ~/.bashrc && \
-    echo "git config --global credential.helper \'cache --timeout=${GIT_TIMEOUT}\' " >> ~/.bashrc && \
+    echo "git config --global credential.helper 'cache --timeout=${GIT_TIMEOUT}' " >> ~/.bashrc && \
     # Install Miniconda
     mkdir -p ~/miniconda3 && \
     wget ${MINICONDA_LINK} -O ~/miniconda3/miniconda.sh && \
