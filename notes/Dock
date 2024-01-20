@@ -1,38 +1,16 @@
 # @author: Deepak Singh
-# dinux:0
 
 # Base Image
-FROM ubuntu:20.04
+FROM dinux:0
 
-# Args Vars
-ARG PYTHON_LINK=https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz
+# COPY conda-env.yml .
 
-# Env Vars
-ENV TZ=Asia/Kolkata \
-    DISPLAY=:99 \
-    GIT_NAME="Singh, Deepak" \
-    GIT_TIMEOUT=86400
+RUN bash && \
+    # Anaconda Env
+    # conda env create --name b --file conda-env.yml
+    # pip install pandas scikit-learn matplotlib openpysql
+    mkdir /root/py-envs && python -m venv b && \
+    /root/py-envs/e1/bin/pip install 
 
-RUN apt-get update && \
-    # Install Packages
-    DEBIAN_FRONTEND=noninteractive apt-get install expect tzdata -y && \
-    # Install Packages
-    apt-get install nano zip wget curl net-tools iputils-ping -y && \
-    # Git Install and Config
-    DEBIAN_FRONTEND=noninteractive apt-get install git-all -y && \
-    echo "echo \$GIT_PASS" > ~/.git-askpass.sh && chmod +x ~/.git-askpass.sh && \
-    echo "# Custom" >> ~/.bashrc && \
-    echo "export GIT_ASKPASS=~/.git-askpass.sh" >> ~/.bashrc && \
-    echo "git config --global user.name \"\$GIT_NAME\" " >> ~/.bashrc && \
-    echo "git config --global user.email \"\$GIT_EMAIL\" " >> ~/.bashrc && \
-    echo "git config --global credential.https://github.com.username \$GIT_USER" >> ~/.bashrc && \
-    echo "git config --global credential.helper \"cache --timeout=\$GIT_TIMEOUT\" " >> ~/.bashrc && \
-    # Python Install 
-    apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev -y  && \
-    mkdir /tmp/pi && cd /tmp/pi && \
-    wget ${PYTHON_LINK} -O python-installer.tgz && \
-    tar -xf python-installer.tgz --strip-components=1 && \
-    ./configure --enable-optimizations && \
-    make -j $(nproc) && \
-    make altinstall && \
-    cd / && rm -rf /tmp/*
+
+
