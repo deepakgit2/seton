@@ -23,10 +23,10 @@ RUN apt-get update && \
     echo "echo \$GIT_PASS" > ~/.git-askpass.sh && chmod +x ~/.git-askpass.sh && \
     echo "# Custom" >> ~/.bashrc && \
     echo "export GIT_ASKPASS=~/.git-askpass.sh" >> ~/.bashrc && \
-    echo "git config --global user.name \"$GIT_NAME\" " >> ~/.bashrc && \
+    echo "git config --global user.name \"\$GIT_NAME\" " >> ~/.bashrc && \
     echo "git config --global user.email \"\$GIT_EMAIL\" " >> ~/.bashrc && \
     echo "git config --global credential.https://github.com.username \$GIT_USER" >> ~/.bashrc && \
-    echo "git config --global credential.helper 'cache --timeout=\$GIT_TIMEOUT' " >> ~/.bashrc && \
+    echo "git config --global credential.helper \"cache --timeout=\$GIT_TIMEOUT\" " >> ~/.bashrc && \
     # Miniconda Install and Config 
     mkdir -p ~/miniconda3 && \
     wget ${MINICONDA_LINK} -O ~/miniconda3/miniconda.sh && \
